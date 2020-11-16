@@ -1,0 +1,11 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table realhero_content_articles'
+    - builder_table_create_realhero_content_articles.php
+1.0.3:
+    - 'Created table realhero_content_categories'
+    - builder_table_create_realhero_content_categories.php
+1.0.4:
+    - 'Updated table realhero_content_categories'
+    - builder_table_update_realhero_content_categories.php

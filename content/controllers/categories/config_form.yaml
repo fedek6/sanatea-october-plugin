@@ -1,0 +1,10 @@
+name: Categories
+form: $/realhero/content/models/category/fields.yaml
+modelClass: RealHero\Content\Models\Category
+defaultRedirect: realhero/content/categories
+create:
+    redirect: 'realhero/content/categories/update/:id'
+    redirectClose: realhero/content/categories
+update:
+    redirect: realhero/content/categories
+    redirectClose: realhero/content/categories

@@ -1,0 +1,6 @@
+plugin:
+    name: 'realhero.extensions::lang.plugin.name'
+    description: 'realhero.extensions::lang.plugin.description'
+    author: 'Konrad Fedorczyk'
+    icon: oc-icon-adjust
+    homepage: ''

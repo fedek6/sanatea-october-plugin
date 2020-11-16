@@ -1,0 +1,20 @@
+plugin:
+    name: 'realhero.content::lang.plugin.name'
+    description: 'realhero.content::lang.plugin.description'
+    author: 'Konrad Fedorczyk'
+    icon: oc-icon-pencil
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Content
+        url: realhero/content/categories
+        icon: icon-pencil
+        sideMenu:
+            side-menu-item:
+                label: Categories
+                url: realhero/content/categories
+                icon: icon-sitemap
+            side-menu-item2:
+                label: Articles
+                url: realhero/content/categories
+                icon: icon-sitemap

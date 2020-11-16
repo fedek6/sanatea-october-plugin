@@ -1,0 +1,20 @@
+fields:
+    name:
+        label: Name
+        span: left
+        required: 1
+        type: text
+        comment: 'Name of the categor'
+    slug:
+        label: Slug
+        span: auto
+        readOnly: 1
+        preset:
+            field: name
+            type: slug
+        type: text
+    color:
+        label: 'Category color'
+        span: auto
+        required: 1
+        type: colorpicker
