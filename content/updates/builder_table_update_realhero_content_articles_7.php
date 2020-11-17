@@ -3,13 +3,13 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class BuilderTableUpdateRealheroContentArticles4 extends Migration
+class BuilderTableUpdateRealheroContentArticles7 extends Migration
 {
     public function up()
     {
         Schema::table('realhero_content_articles', function($table)
         {
-            $table->dropColumn('cover');
+            $table->string('cover_alt', 255);
         });
     }
     
@@ -17,7 +17,7 @@ class BuilderTableUpdateRealheroContentArticles4 extends Migration
     {
         Schema::table('realhero_content_articles', function($table)
         {
-            $table->string('cover', 255);
+            $table->dropColumn('cover_alt');
         });
     }
 }

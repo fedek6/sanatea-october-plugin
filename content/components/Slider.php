@@ -8,7 +8,11 @@ class Slider extends \Cms\Classes\ComponentBase
 
     public function init()
     {
-        $this->slides = Article::where('show_on_slider', '1')->with('category')->get();
+        $this->slides = Article::where('show_on_slider', '1')
+            ->with('category')
+            ->orderBy('created_at', 'desc')
+            ->take($this->property('maxItems', 10))
+            ->get();
     }
 
     public function componentDetails()
@@ -16,6 +20,19 @@ class Slider extends \Cms\Classes\ComponentBase
         return [
             'name' => 'Slider',
             'description' => 'Generates slides.'
+        ];
+    }
+
+    public function defineProperties()
+    {
+        return [
+            'maxItems' => [
+                 'title'             => 'Max items',
+                 'default'           => 10,
+                 'type'              => 'string',
+                 'validationPattern' => '^[0-9]+$',
+                 'validationMessage' => 'The Max Items property can contain only numeric symbols'
+            ]
         ];
     }
 }

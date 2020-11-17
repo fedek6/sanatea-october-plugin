@@ -63,12 +63,20 @@ tabs:
         cover:
             label: Cover
             mode: image
-            span: auto
+            imageWidth: '250'
+            imageHeight: '250'
+            span: left
             required: 1
             type: mediafinder
             tab: Cover
         cover_copyright:
             label: 'Cover copyright'
-            span: auto
+            span: right
             type: text
+            tab: Cover
+        cover_alt:
+            label: 'Cover alt'
+            span: right
+            type: text
+            comment: 'Type this for SEO results'
             tab: Cover
