@@ -5,3 +5,6 @@ columns:
     color:
         label: color
         type: text
+    slug:
+        label: slug
+        type: text

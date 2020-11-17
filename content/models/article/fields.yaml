@@ -75,6 +75,16 @@ tabs:
             span: right
             type: text
             tab: Cover
+        vertical_cover_orientation:
+            label: 'Vertical cover orientation'
+            options:
+                '-cover-center': Center
+                '-cover-bottom': Bottom
+                '-cover-top': Top
+            span: auto
+            required: 1
+            type: radio
+            tab: Cover
         cover_alt:
             label: 'Cover alt'
             span: right
