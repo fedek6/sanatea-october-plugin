@@ -9,6 +9,7 @@ class Plugin extends PluginBase
         return [
             'RealHero\Content\Components\CategoriesMenu' => 'categoriesMenu',
             'RealHero\Content\Components\Slider' => 'slider',
+            'RealHero\Content\Components\CategoryArticles' => 'categoryArticles',
         ];
     }
 

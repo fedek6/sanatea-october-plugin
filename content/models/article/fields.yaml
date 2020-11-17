@@ -42,6 +42,7 @@ fields:
                         text-module: 'Text module'
                         frame-module: 'Frame module'
                     span: left
+                    required: 1
                     type: radio
                 modifiers:
                     label: Modifiers
