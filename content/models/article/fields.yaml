@@ -2,35 +2,73 @@ fields:
     title:
         label: Title
         span: auto
+        required: 1
         type: text
     slug:
         label: Slug
         span: right
-        readOnly: 1
+        readOnly: 0
+        required: 1
         preset:
             field: title
             type: slug
         type: text
-    cover:
-        label: Cover
-        mode: file
-        span: left
-        type: mediafinder
     category:
         label: Category
         nameFrom: name
         descriptionFrom: description
         span: auto
+        required: 1
         type: relation
+    show_on_slider:
+        label: 'Show on slider'
+        span: auto
+        type: checkbox
+    excerpt:
+        label: Excerpt
+        size: ''
+        span: full
+        type: richeditor
     text:
-        label: Repeater
+        label: 'Article modules'
         prompt: 'Add new item'
         span: full
         type: repeater
         form:
             fields:
+                template_type:
+                    label: 'Template type'
+                    options:
+                        text-module: 'Text module'
+                        frame-module: 'Frame module'
+                    span: left
+                    type: radio
+                modifiers:
+                    label: Modifiers
+                    span: right
+                    type: text
+                    comment: 'Pass them as: -modfier1 -modifier2'
                 text_contents:
                     label: 'Rich editor'
-                    size: large
-                    span: full
+                    size: small
+                    span: left
                     type: richeditor
+                illustration:
+                    label: 'Illustration (if nedded)'
+                    mode: file
+                    span: auto
+                    type: mediafinder
+tabs:
+    fields:
+        cover:
+            label: Cover
+            mode: image
+            span: auto
+            required: 1
+            type: mediafinder
+            tab: Cover
+        cover_copyright:
+            label: 'Cover copyright'
+            span: auto
+            type: text
+            tab: Cover
