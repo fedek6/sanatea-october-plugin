@@ -1,0 +1,10 @@
+name: Types
+form: $/realhero/content/models/type/fields.yaml
+modelClass: RealHero\Content\Models\Type
+defaultRedirect: realhero/content/types
+create:
+    redirect: 'realhero/content/types/update/:id'
+    redirectClose: realhero/content/types
+update:
+    redirect: realhero/content/types
+    redirectClose: realhero/content/types

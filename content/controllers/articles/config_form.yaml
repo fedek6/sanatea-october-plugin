@@ -1,0 +1,10 @@
+name: Articles
+form: $/realhero/content/models/article/fields.yaml
+modelClass: RealHero\Content\Models\Article
+defaultRedirect: realhero/content/articles
+create:
+    redirect: 'realhero/content/articles/update/:id'
+    redirectClose: realhero/content/articles
+update:
+    redirect: realhero/content/articles
+    redirectClose: realhero/content/articles

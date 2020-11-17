@@ -5,14 +5,19 @@ use Model;
 /**
  * Model
  */
-class Category extends Model
+class Type extends Model
 {
     use \October\Rain\Database\Traits\Validation;
+    
+    use \October\Rain\Database\Traits\SoftDelete;
+
+    protected $dates = ['deleted_at'];
+
 
     /**
      * @var string The database table used by the model.
      */
-    public $table = 'realhero_content_categories';
+    public $table = 'realhero_content_types';
 
     /**
      * @var array Validation rules
@@ -20,13 +25,10 @@ class Category extends Model
     public $rules = [
     ];
 
-    /**
-     * Relations.
-     */
-    public $belongsTo = [
-        'type' => [ 
-            'RealHero\Content\Models\Type',
-            'key' => 'type_id'
-        ],
+    public $hasMany = [
+        'categories' => [
+            'RealHero\Content\Models\Category'
+        ]
     ];
+
 }

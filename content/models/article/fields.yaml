@@ -1,0 +1,36 @@
+fields:
+    title:
+        label: Title
+        span: auto
+        type: text
+    slug:
+        label: Slug
+        span: right
+        readOnly: 1
+        preset:
+            field: title
+            type: slug
+        type: text
+    cover:
+        label: Cover
+        mode: file
+        span: left
+        type: mediafinder
+    category:
+        label: Category
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation
+    text:
+        label: Repeater
+        prompt: 'Add new item'
+        span: full
+        type: repeater
+        form:
+            fields:
+                text_contents:
+                    label: 'Rich editor'
+                    size: large
+                    span: full
+                    type: richeditor

@@ -1,6 +1,6 @@
-list: $/realhero/content/models/category/columns.yaml
-modelClass: RealHero\Content\Models\Category
-title: Categories
+list: $/realhero/content/models/type/columns.yaml
+modelClass: RealHero\Content\Models\Type
+title: Types
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
 showCheckboxes: true
@@ -9,4 +9,4 @@ toolbar:
     buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
-recordUrl: 'realhero/content/categories/update/:id'
+recordUrl: 'realhero/content/types/update/:id'

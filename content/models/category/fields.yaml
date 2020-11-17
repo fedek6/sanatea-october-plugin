@@ -18,3 +18,10 @@ fields:
         span: auto
         required: 1
         type: colorpicker
+    type:
+        label: Type
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        required: 1
+        type: relation

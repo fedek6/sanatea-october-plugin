@@ -16,5 +16,9 @@ navigation:
                 icon: icon-sitemap
             side-menu-item2:
                 label: Articles
-                url: realhero/content/categories
+                url: realhero/content/articles
                 icon: icon-sitemap
+            side-menu-item3:
+                label: 'Content types'
+                url: realhero/content/types
+                icon: icon-hand-o-right

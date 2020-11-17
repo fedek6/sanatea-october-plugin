@@ -6,6 +6,9 @@ class Plugin extends PluginBase
 {
     public function registerComponents()
     {
+        return [
+            'RealHero\Content\Components\CategoriesMenu' => 'categoriesMenu',
+        ];
     }
 
     public function registerSettings()

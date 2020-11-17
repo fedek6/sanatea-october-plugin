@@ -2,6 +2,6 @@ columns:
     name:
         label: name
         type: text
-    color:
-        label: color
+    slug:
+        label: slug
         type: text
