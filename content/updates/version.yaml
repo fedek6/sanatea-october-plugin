@@ -39,3 +39,6 @@
 1.0.14:
     - 'Updated table realhero_content_articles'
     - builder_table_update_realhero_content_articles_7.php
+1.0.15:
+    - 'Updated table realhero_content_types'
+    - builder_table_update_realhero_content_types.php

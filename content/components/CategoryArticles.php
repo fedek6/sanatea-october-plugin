@@ -8,10 +8,41 @@ class CategoryArticles extends \Cms\Classes\ComponentBase
 
     public function onRender()
     {
-        $this->articles = Article::where('category_id', '=', $this->property('categoryId', 1)) 
-            ->orderBy('created_at', 'desc')
-            ->take($this->property('maxItems', 3))
-            ->get();
+        $disabledIds = $this->property('disabledIds', '');
+
+        if (!empty($disabledIds)) {
+            $disabledIds = explode(', ', $disabledIds);
+        } else {
+            $disabledIds = [];
+        }
+
+        $model = Article::when($this->property('categoryId', 0) != 0, function ($query) {
+            return $query->where('category_id', '=', $this->property('categoryId'));
+        });
+
+        if ($this->property('categoryId', 0) != 0) {
+            $model->where('category_id', '=', $this->property('categoryId'));
+        }
+
+        // Remove slider posts.
+        if ($this->property('removeSliderPosts', 0) != 0) {
+            $sliderIds = Article::where('show_on_slider', '1')
+                ->select('id')
+                ->orderBy('created_at', 'desc')
+                ->take($this->property('removeSliderPost'))
+                ->pluck('id')
+                ->toArray();
+
+            $disabledIds = array_merge($disabledIds,  $sliderIds);
+        }
+
+        // Remove posts from query 
+        // if needed.
+        if (!empty($disabledIds)) {
+            $model->whereNotIn('id', $disabledIds);
+        }
+
+        $this->articles = $model->orderBy('created_at', 'desc')->take($this->property('maxItems', 3))->get();
     }
 
     public function componentDetails()
@@ -30,15 +61,29 @@ class CategoryArticles extends \Cms\Classes\ComponentBase
                  'default'           => 3,
                  'type'              => 'string',
                  'validationPattern' => '^[0-9]+$',
-                 'validationMessage' => 'The Max Items property can contain only numeric symbols'
+                 'validationMessage' => 'Only numeric symbols!'
             ],
             'categoryId' => [
                 'title'             => 'Category id',
-                'default'           => 1,
+                'default'           => '0',
                 'type'              => 'string',
                 'validationPattern' => '^[0-9]+$',
-                'validationMessage' => 'Take posts from category'
-           ],
+                'validationMessage' => 'Only numeric symbols!'
+            ],
+            'disabledIds' => [
+                'title'             => 'Disabled id\'s',
+                'default'           => '',
+                'type'              => 'string',
+                'validationPattern' => '^([0-9](, )?)+$',
+                'validationMessage' => 'Only numeric symbols (comma separated)!'
+            ],
+            'removeSliderPosts' => [
+                'title'             => 'Remove N slider posts',
+                'default'           => '0',
+                'type'              => 'string',
+                'validationPattern' => '^[0-9]+$',
+                'validationMessage' => 'Only numeric symbols!',
+            ],
         ];
     }
 }

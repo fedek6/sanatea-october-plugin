@@ -8,9 +8,7 @@ class CategoriesMenu extends \Cms\Classes\ComponentBase
 
     public function init()
     {
-        //$this->categories = 'hello world';
-
-        $this->categories = Type::with('categories')->get();
+        $this->categories = Type::where('show_in_menu', 1)->with('categories')->get();
     }
 
     public function componentDetails()

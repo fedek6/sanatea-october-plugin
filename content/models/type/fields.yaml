@@ -12,3 +12,8 @@ fields:
             field: name
             type: slug
         type: text
+    show_in_menu:
+        label: 'Show in menu?'
+        span: auto
+        default: 1
+        type: checkbox
