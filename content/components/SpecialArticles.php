@@ -2,11 +2,11 @@
 
 use RealHero\Content\Models\Article;
 
-class CategoryArticles extends \Cms\Classes\ComponentBase
+class SpecialArticles extends \Cms\Classes\ComponentBase
 {
     public $articles;
 
-    public function onRender()
+    public function init()
     {
         $disabledIds = $this->property('disabledIds', '');
 
@@ -19,23 +19,6 @@ class CategoryArticles extends \Cms\Classes\ComponentBase
         $model = Article::when($this->property('categoryId', 0) != 0, function ($query) {
             return $query->where('category_id', '=', $this->property('categoryId'));
         });
-
-        if ($this->property('categoryId', 0) != 0) {
-            $model->where('category_id', '=', $this->property('categoryId'));
-        }
-
-
-        // Remove slider posts.
-        if ($this->property('removeSliderPosts', 0) != 0) {
-            $sliderIds = Article::where('show_on_slider', '1')
-                ->select('id')
-                ->orderBy('created_at', 'desc')
-                ->take($this->property('removeSliderPosts'))
-                ->pluck('id')
-                ->toArray();
-
-            $disabledIds = array_merge($disabledIds,  $sliderIds);
-        }
 
         // Remove posts from query 
         // if needed.
@@ -62,8 +45,8 @@ class CategoryArticles extends \Cms\Classes\ComponentBase
     public function componentDetails()
     {
         return [
-            'name' => 'Category articles',
-            'description' => 'Renders articles from category.'
+            'name' => 'Special articles',
+            'description' => 'Renders special articles.'
         ];
     }
 
@@ -83,13 +66,6 @@ class CategoryArticles extends \Cms\Classes\ComponentBase
                 'type'              => 'string',
                 'validationPattern' => '^[0-9]+$',
                 'validationMessage' => 'Only numeric symbols!'
-           ],
-            'categoryId' => [
-                'title'             => 'Category id',
-                'default'           => '0',
-                'type'              => 'string',
-                'validationPattern' => '^[0-9]+$',
-                'validationMessage' => 'Only numeric symbols!'
             ],
             'articleType' => [
                 'title'             => 'Type of articles',
@@ -102,28 +78,21 @@ class CategoryArticles extends \Cms\Classes\ComponentBase
                     'all'                   => 'All',
                 ]
             ],
+            'template' => [
+                'title'             => 'Template type',
+                'default'           => 'two-columns',
+                'type'              => 'dropdown',
+                'options'           => [
+                    'two-columns'           => 'Two columns',
+                    'editor-recommended'    => 'Recommended by editor',
+                ]
+            ],
             'disabledIds' => [
                 'title'             => 'Disabled id\'s',
                 'default'           => '',
                 'type'              => 'string',
                 'validationPattern' => '^([0-9](, )?)+$',
                 'validationMessage' => 'Only numeric symbols (comma separated)!'
-            ],
-            'removeSliderPosts' => [
-                'title'             => 'Remove N slider posts',
-                'default'           => '0',
-                'type'              => 'string',
-                'validationPattern' => '^[0-9]+$',
-                'validationMessage' => 'Only numeric symbols!',
-            ],
-            'template' => [
-                'title'             => 'Template type',
-                'default'           => 'three-columns',
-                'type'              => 'dropdown',
-                'options'           => [
-                    'two-columns'       => 'Two columns',
-                    'three-columns'     => 'Three columns',
-                ]
             ],
         ];
     }

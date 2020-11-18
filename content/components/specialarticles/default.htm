@@ -1,0 +1,6 @@
+{% if __SELF__.property('template') == 'two-columns' %}
+    {% partial '@two-columns' articles=__SELF__.articles %}
+{% elseif __SELF__.property('template') == 'editor-recommended' %}
+    {% partial '@editor-recommended' articles=__SELF__.articles %}
+{% endif %}
+
