@@ -5,3 +5,6 @@ columns:
     slug:
         label: slug
         type: text
+    created_at:
+        label: date
+        type: date

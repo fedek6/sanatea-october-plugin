@@ -29,4 +29,10 @@ class Category extends Model
             'key' => 'type_id'
         ],
     ];
+
+    public $hasMany = [
+        'articles' => [
+            'RealHero\Content\Models\Article'
+        ]
+    ];
 }

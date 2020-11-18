@@ -6,7 +6,7 @@ class CategoryArticles extends \Cms\Classes\ComponentBase
 {
     public $articles;
 
-    public function onRender()
+    public function init()
     {
         $disabledIds = $this->property('disabledIds', '');
 
@@ -24,12 +24,13 @@ class CategoryArticles extends \Cms\Classes\ComponentBase
             $model->where('category_id', '=', $this->property('categoryId'));
         }
 
+
         // Remove slider posts.
         if ($this->property('removeSliderPosts', 0) != 0) {
             $sliderIds = Article::where('show_on_slider', '1')
                 ->select('id')
                 ->orderBy('created_at', 'desc')
-                ->take($this->property('removeSliderPost'))
+                ->take($this->property('removeSliderPosts'))
                 ->pluck('id')
                 ->toArray();
 
@@ -42,7 +43,20 @@ class CategoryArticles extends \Cms\Classes\ComponentBase
             $model->whereNotIn('id', $disabledIds);
         }
 
-        $this->articles = $model->orderBy('created_at', 'desc')->take($this->property('maxItems', 3))->get();
+        // Posts type
+        if ($this->property('articleType', 'standard') != 'all') {
+            $model->where('type', $this->property('articleType'));
+        }
+
+        // How many posts?
+        $model->take($this->property('maxItems', 3));
+
+        // Offset
+        if ($this->property('offsetItems', 0) != 0) {
+            $model->skip($this->property('offsetItems'));
+        }
+        
+        $this->articles = $model->orderBy('created_at', 'desc')->get();
     }
 
     public function componentDetails()
@@ -63,12 +77,30 @@ class CategoryArticles extends \Cms\Classes\ComponentBase
                  'validationPattern' => '^[0-9]+$',
                  'validationMessage' => 'Only numeric symbols!'
             ],
+            'offsetItems' => [
+                'title'             => 'Starting post record',
+                'default'           => 0,
+                'type'              => 'string',
+                'validationPattern' => '^[0-9]+$',
+                'validationMessage' => 'Only numeric symbols!'
+           ],
             'categoryId' => [
                 'title'             => 'Category id',
                 'default'           => '0',
                 'type'              => 'string',
                 'validationPattern' => '^[0-9]+$',
                 'validationMessage' => 'Only numeric symbols!'
+            ],
+            'articleType' => [
+                'title'             => 'Type of articles',
+                'default'           => 'standard',
+                'type'              => 'dropdown',
+                'options'           => [
+                    'at_time'               => 'At time',
+                    'editor_recommended'    => 'Recommended by editor',
+                    'standard'              => 'Standard',
+                    'all'                   => 'All',
+                ]
             ],
             'disabledIds' => [
                 'title'             => 'Disabled id\'s',

@@ -35,4 +35,8 @@ class Slider extends \Cms\Classes\ComponentBase
             ]
         ];
     }
+
+    public function render() {
+        return 'dupa';
+    }
 }

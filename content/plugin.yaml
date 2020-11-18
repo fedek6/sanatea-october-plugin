@@ -10,13 +10,13 @@ navigation:
         url: realhero/content/categories
         icon: icon-pencil
         sideMenu:
-            side-menu-item:
-                label: Categories
-                url: realhero/content/categories
-                icon: icon-sitemap
             side-menu-item2:
                 label: Articles
                 url: realhero/content/articles
+                icon: icon-sitemap
+            side-menu-item:
+                label: Categories
+                url: realhero/content/categories
                 icon: icon-sitemap
             side-menu-item3:
                 label: 'Content types'

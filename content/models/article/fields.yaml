@@ -29,6 +29,17 @@ fields:
         size: ''
         span: full
         type: richeditor
+    type:
+        label: 'Article extra type'
+        options:
+            at_time: 'At time'
+            editor_recommended: 'Recommended by editor'
+            standard: Standard
+        emptyOption: none
+        showSearch: true
+        span: auto
+        default: standard
+        type: dropdown
     text:
         label: 'Article modules'
         prompt: 'Add new item'
@@ -59,6 +70,10 @@ fields:
                     mode: file
                     span: auto
                     type: mediafinder
+                advert_enabled:
+                    label: Advert
+                    span: auto
+                    type: switch
 tabs:
     fields:
         cover:
