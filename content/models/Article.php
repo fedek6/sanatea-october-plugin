@@ -1,6 +1,7 @@
 <?php namespace RealHero\Content\Models;
 
 use Model;
+use Illuminate\Support\Facades\Input;
 
 /**
  * Model
@@ -47,5 +48,17 @@ class Article extends Model
                 ->getTable())
                 ->where('slug', $slug);
         })->with('category');
+    }
+
+    /**
+     * Scope a query to only include users of a given type.
+     */
+    public function scopeSearch($query)
+    {
+        $searchQuery = substr(trim(Input::get('q')), 0, 25);
+
+        return $query->where('text', 'LIKE', "%$searchQuery%")
+            ->orWhere('title', 'LIKE', "%$searchQuery%")
+            ->with('category');
     }
 }

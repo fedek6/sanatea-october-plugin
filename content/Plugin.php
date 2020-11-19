@@ -13,6 +13,7 @@ class Plugin extends PluginBase
             'RealHero\Content\Components\Slider' => 'slider',
             'RealHero\Content\Components\CategoryArticles' => 'categoryArticles',
             'RealHero\Content\Components\SpecialArticles' => 'specialArticles',
+            'RealHero\Content\Components\ArticleSearch' => 'articleSearch',
         ];
     }
 
