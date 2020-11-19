@@ -35,4 +35,12 @@ class Category extends Model
             'RealHero\Content\Models\Article'
         ]
     ];
+
+    /**
+     * Scope a query to only include users of a given type.
+     */
+    public function scopeSlug($query, $slug)
+    {
+        return $query->where('slug', $slug);
+    }
 }

@@ -35,4 +35,17 @@ class Article extends Model
             'key' => 'category_id'
         ],
     ];
+
+    /**
+     * Scope a query to only include users of a given type.
+     */
+    public function scopeCat($query, $slug)
+    {
+        return $query->where('category_id', function($query) use ($slug) {
+            $query->select('id')
+                ->from(with(new \RealHero\Content\Models\Category)
+                ->getTable())
+                ->where('slug', $slug);
+        })->with('category');
+    }
 }
