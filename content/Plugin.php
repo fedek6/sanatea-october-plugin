@@ -17,6 +17,13 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerFormWidgets()
+    {
+        return [
+            'RealHero\Content\FormWidgets\Adverts' => 'adverts',
+        ];     
+    }
+
     public function registerSettings()
     {
     }

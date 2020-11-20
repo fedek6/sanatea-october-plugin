@@ -74,6 +74,10 @@ fields:
                     label: Advert
                     span: left
                     type: switch
+                selected_advert:
+                    label: Select advert
+                    span: left
+                    type: adverts
                 predefined_modifiers:
                     label: Modifiers
                     options:

@@ -1,0 +1,10 @@
+
+<select name="<?= $name ?>" class="form-control custom-select">
+    <?php foreach( $adverts as $advert ): ?>
+        <?php if( $advert->id == $value ): ?>
+            <option value="<?= $advert->id; ?>" selected="selected"><?= $advert->name; ?></option>
+        <?php else: ?>
+            <option value="<?= $advert->id; ?>"><?= $advert->name; ?></option>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</select>

@@ -21,7 +21,7 @@ Route::get('randomadvert/{orientation}/placement/{placement}', function ($orient
 
         return Response::json([
             'desktop_img'   => imgPathToUrl($advert['desktop_img']),
-            'mobile_img'    => imgPathToUrl($advert['desktop_img']),
+            'mobile_img'    => imgPathToUrl($advert['mobile_img']),
             'url'           => $advert['url'],
         ]);
     } else {
@@ -34,7 +34,7 @@ Route::get('randomadvert/{orientation}/placement/{placement}', function ($orient
  */
 Route::get('advert/{id}', function ($id) {
     // return $orientation . ' ' . $type;
-    $advert = Advert::find($id)
+    $advert = Advert::where('id', $id)
         ->select('desktop_img', 'mobile_img', 'url')
         ->first();
 
@@ -43,7 +43,7 @@ Route::get('advert/{id}', function ($id) {
         
         return Response::json([
             'desktop_img'   => imgPathToUrl($advert['desktop_img']),
-            'mobile_img'    => imgPathToUrl($advert['desktop_img']),
+            'mobile_img'    => imgPathToUrl($advert['mobile_img']),
             'url'           => $advert['url'],
         ]);
     } else {
