@@ -7,7 +7,7 @@ plugin:
 navigation:
     main-menu-item:
         label: Content
-        url: realhero/content/categories
+        url: realhero/content/articles
         icon: icon-pencil
         sideMenu:
             side-menu-item2:
@@ -22,3 +22,7 @@ navigation:
                 label: 'Content types'
                 url: realhero/content/types
                 icon: icon-hand-o-right
+            side-menu-item4:
+                label: Adverts
+                url: realhero/content/adverts
+                icon: icon-money

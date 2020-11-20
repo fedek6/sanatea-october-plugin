@@ -48,3 +48,9 @@
 1.0.17:
     - 'Updated table realhero_content_articles'
     - builder_table_update_realhero_content_articles_9.php
+1.0.18:
+    - 'Created table realhero_content_adverts'
+    - builder_table_create_realhero_content_adverts.php
+1.0.19:
+    - 'Updated table realhero_content_adverts'
+    - builder_table_update_realhero_content_adverts.php

@@ -1,0 +1,15 @@
+columns:
+    name:
+        label: name
+        type: text
+    orientation:
+        label: orientation
+        type: text
+    placement:
+        label: placement
+        type: text
+        sortable: false
+    created_at:
+        label: created_at
+        type: text
+        sortable: true

@@ -1,0 +1,51 @@
+tabs:
+    fields:
+        name:
+            label: 'Advert title'
+            span: auto
+            required: 1
+            type: text
+            tab: 'Tab 1'
+        orientation:
+            label: Orientation
+            options:
+                horizontal: Horizontal
+                vertical: Vertical
+            span: auto
+            required: 1
+            type: radio
+            tab: 'Tab 1'
+        placement:
+            label: Placement
+            options:
+                main-page: 'Main page'
+                articles: Articles
+            span: auto
+            required: 1
+            type: radio
+            tab: 'Tab 1'
+        url:
+            label: 'URL (link)'
+            span: auto
+            type: text
+            tab: 'Tab 1'
+        desktop_img:
+            label: 'Desktop image'
+            mode: image
+            imageWidth: '250'
+            imageHeight: '250'
+            span: auto
+            required: 1
+            type: mediafinder
+            comment: 'Bigger resolution for desktop'
+            tab: 'Tab 1'
+        mobile_img:
+            label: 'Mobile image'
+            mode: image
+            imageWidth: '250'
+            imageHeight: '250'
+            span: auto
+            required: 1
+            type: mediafinder
+            comment: 'Square creation for small devices'
+            tab: 'Tab 1'

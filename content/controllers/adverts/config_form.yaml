@@ -1,0 +1,10 @@
+name: Adverts
+form: $/realhero/content/models/advert/fields.yaml
+modelClass: RealHero\Content\Models\Advert
+defaultRedirect: realhero/content/adverts
+create:
+    redirect: 'realhero/content/adverts/update/:id'
+    redirectClose: realhero/content/adverts
+update:
+    redirect: realhero/content/adverts
+    redirectClose: realhero/content/adverts

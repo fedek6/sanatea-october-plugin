@@ -56,7 +56,7 @@ fields:
                     required: 1
                     type: radio
                 modifiers:
-                    label: Modifiers
+                    label: 'Custom modifiers'
                     span: right
                     type: text
                     comment: 'Pass them as: -modfier1 -modifier2'
@@ -72,8 +72,22 @@ fields:
                     type: mediafinder
                 advert_enabled:
                     label: Advert
-                    span: auto
+                    span: left
                     type: switch
+                predefined_modifiers:
+                    label: Modifiers
+                    options:
+                        '-border': 'Top & bottom border'
+                        '-teaser-bg': 'Distinctive color background'
+                        '-margin-bottom': 'Additional bottom margin'
+                        '-illustration-bottom': 'Illustration on the bottom'
+                        '-illustration-center': 'Illustration centered vertically'
+                        '-text-center': 'Text centered vertically'
+                        '-illustration-left': 'Illustration on the left'
+                        '-half-on-half': 'Containers width half on half'
+                        '-frame-bg-blue': 'Blue background'
+                    span: full
+                    type: checkboxlist
 tabs:
     fields:
         cover:

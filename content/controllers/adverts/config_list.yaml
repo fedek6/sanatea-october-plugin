@@ -1,0 +1,12 @@
+list: $/realhero/content/models/advert/columns.yaml
+modelClass: RealHero\Content\Models\Advert
+title: Adverts
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'realhero/content/adverts/update/:id'
